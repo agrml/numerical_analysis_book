@@ -1,0 +1,289 @@
+% После процента идут комментарии
+
+% Класс документа
+\documentclass[12pt, a4paper, twoside, openright]{report}
+    % Размеры полей
+    \usepackage[left=15mm, right=15mm, bottom=25mm, top=25mm, papersize={165mm, 240mm}]{geometry}
+    
+    % Кодировка файла
+    \usepackage[T2A]{fontenc}
+    \usepackage[utf8]{inputenc}
+    % Переносы для русского языка
+    \usepackage[russian]{babel}
+    
+    
+    \usepackage{graphicx}
+    \graphicspath{{image/}}
+    \usepackage{tikz}
+    \usepackage{epstopdf}
+    \usepackage{hyperref}
+    \usepackage{float}
+    
+    
+    \hypersetup{
+        colorlinks,
+        breaklinks,
+        linkcolor=[rgb]{0.07, 0.03, 0.56},
+        citecolor=[rgb]{0.1, 0.45, 0.27},
+        %colorlinks=true,% hyperlinks will be coloured
+        urlcolor=[rgb]{0.07, 0.03, 0.56},
+        %linkbordercolor=[rgb]{0.07, 0.03, 0.56}
+    }
+    
+    \newcommand{\myfontsizes}{\fontsize{8}{14}\selectfont}
+    \usepackage{fancyhdr}
+    % ИЗМЕНЕНИЕ ШРИФТА В КОЛОНТИТУЛАХ
+    \fancyhf{}
+    \fancyhead[LE, RO]{\myfontsizes \thepage}
+    \fancyhead[RE]{{\myfontsizes \leftmark}}
+    \fancyhead[LO]{{\myfontsizes \rightmark}}
+    \fancyfoot{}
+    
+    
+    
+    \makeatletter
+    \let\ps@plain\ps@empty
+    \makeatother
+    
+    % Отступ абзаца после заголовка
+    \usepackage{indentfirst}
+    
+    %\usepackage{titlesec}
+    \renewcommand{\thesection}{\S~\arabic{section}}
+    % Добавить символ параграфа в нумерации section
+    %\let\oldthesection\thesection \renewcommand\thesection{\S \oldthesection}
+    
+    %\renewcommand{\thechapter}{Глава~\roman{chapter}}
+    %\let\oldthesection\thesection \renewcommand\thesection{\S \oldthesection}
+    \usepackage{titletoc}%
+    \titlecontents{chapter}% <section-type>
+    [0pt]% <left>
+    {\bfseries}% <above-code>
+    {\chaptername\ \thecontentslabel }% <numbered-entry-format>
+    {}% <numberless-entry-format>
+    {\hfill\contentspage}% <filler-page-format>
+    
+    %\titleformat{\chapter}{\thispagestyle{myheadings}\centering\hyphenpenalty=10000\normalfont\huge\bfseries}{Глава~\roman{chapter} \thechapter. }{0pt}{\Huge}
+    %\makeatother
+    
+    
+    \usepackage[intlimits]{amsmath}
+    % Нумерация в пределах параграфа
+    \numberwithin{equation}{section}
+    % Изменить формат нумерации формул с (1.2) на (2)
+    \renewcommand{\theequation}{\arabic{equation}}
+    
+    \renewcommand{\thefigure}{\arabic{figure}}
+    
+    \usepackage{cmap}
+    % Разные математические шрифты
+    % Например, для обозначения множества вещественных чисел
+    \usepackage{amsfonts}
+    % Математические символы
+    \usepackage{amssymb}
+    % Для изменения символов нумерации
+    \usepackage{enumerate}
+    % Для нумерованных списков
+    \usepackage{enumitem}
+    % Декартов крест
+    \DeclareFontFamily{U}{mathx}{\hyphenchar\font45}
+    \DeclareFontShape{U}{mathx}{m}{n}{
+          <5> <6> <7> <8> <9> <10>
+          <10.95> <12> <14.4> <17.28> <20.74> <24.88>
+          mathx10
+          }{}
+    \DeclareSymbolFont{mathx}{U}{mathx}{m}{n}
+    \DeclareMathSymbol{\bigtimes}{1}{mathx}{"91}
+    
+    \usepackage{array}
+    
+    % Теоремы
+    \usepackage{amsthm}
+    \newtheorem*{statement}{Утверждение}
+    \newtheorem*{problem*}{Задача}
+    \newtheorem{problem}{Задача}
+    \newtheorem*{definition}{Определение}
+    
+    \theoremstyle{definition}
+    \newtheorem{example}{Пример}[section]
+    \renewcommand{\theexample}{\arabic{example}}
+    \newtheorem*{example*}{Пример}
+    
+    \theoremstyle{plain}
+    \newtheorem{theorem}{Теорема}[section]
+    \renewcommand{\thetheorem}{\arabic{theorem}}
+    \newtheorem*{theorem*}{Теорема}
+    
+    \newtheorem{new_note}{Замечание}[section]
+    
+    \newtheorem{note}{Замечание}[section]
+    \renewcommand{\thenote}{\arabic{note}}
+    
+    
+    
+    \newtheorem{lemma}{Лемма}[section]
+    \renewcommand{\thelemma}{\arabic{lemma}}
+    \newtheorem*{lemma*}{Лемма}
+    
+    \newtheorem*{note*}{Замечание}
+    
+    \newtheorem{formulation}{Постановка задачи}
+    
+    \newtheorem*{formulation*}{Постановка задачи}
+    
+    \newtheorem{cons}{Следствие}[section]
+    \renewcommand{\thecons}{\arabic{cons}}
+    \newtheorem*{cons*}{Следствие}
+    
+    \makeatletter \renewenvironment{proof}[1][\proofname] {%
+    \par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item%
+    [\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}%
+    {\popQED\endtrivlist\@endpefalse} \makeatother
+    
+    \makeatletter \newenvironment{solution}[1][Решение] {%
+    \par\pushQED{\qed}\normalfont\topsep6\p@\@plus6\p@\relax\trivlist\item%
+    [\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces}%
+    {\popQED\endtrivlist\@endpefalse} \makeatother
+    
+    % Новая строка после названия пункта
+    \makeatletter
+    \renewcommand\paragraph{%
+       \@startsection{paragraph}{4}{0mm}%
+          {-\baselineskip}%
+          {.5\baselineskip}%
+          {\normalfont\large\bfseries}}
+    \makeatother
+    
+    \makeatletter
+    \DeclareRobustCommand*{\bfseries}{%
+      \not@math@alphabet\bfseries\mathbf
+      \fontseries\bfdefault\selectfont
+      \boldmath
+    }
+    \makeatother
+    
+    % Для систем уравнений
+    \usepackage{cases}
+    
+    \makeatletter
+    \newenvironment{sqcases}{%
+      \matrix@check\sqcases\env@sqcases
+    }{%
+      \endarray\right.%
+    }
+    \def\env@sqcases{%
+      \let\@ifnextchar\new@ifnextchar
+      \left\lbrack
+      \def\arraystretch{1.2}%
+      \array{@{}l@{\quad}l@{}}%
+    }
+    \makeatother
+    
+    \usepackage{mathtools}
+    % Норма вектора
+    \DeclarePairedDelimiter\norm{\lVert}{\rVert}
+    % Целая часть сверху
+    \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+    % Оператор sgn
+    \DeclareMathOperator{\sgn}{sgn}
+    % Оператор diag
+    \DeclareMathOperator{\diag}{diag}
+    
+    \renewcommand\labelitemi{---}
+    % \fancyhead{}
+    % \fancyhead[LE,RO]{\thepage}
+    % \fancyhead[RE]{\leftmark}
+    % \fancyhead[LO]{\rightmark}
+    
+    \setcounter{secnumdepth}{1}
+    \setcounter{tocdepth}{1}
+    \newcommand{\bigO}[1]{\ensuremath{\operatorname{O}\bigl(#1\bigr)}}
+    \newcommand{\largeO}{\text{\LARGE{$\operatorname{O}$}}}
+    
+    \DeclareMathAlphabet{\mathbfit}{OML}{cmm}{b}{it}
+    \newcommand{\vfunc}[1]{\mathbfit{#1}}
+    
+    \setlength{\headheight}{16pt}
+    \bibliographystyle{utf8gost705u}  %% стилевой файл для оформления по ГОСТу
+    
+    \makeatletter
+    \def\@biblabel#1{#1. }
+    \makeatother
+    
+    %\makeatletter
+    %\renewcommand\l@chapter[2]{%
+    %  \ifnum \c@tocdepth >\m@ne
+    %    \addpenalty{-\@highpenalty}%
+    %    \vskip 1.0em \@plus\p@
+    %    \setlength\@tempdima{1.5em}%
+    %    \begingroup
+    %      \parindent \z@ \rightskip \@pnumwidth
+    %      \parfillskip -\@pnumwidth
+    %      \leavevmode \bfseries
+    %      \advance\leftskip\@tempdima
+    %      \hskip -\leftskip
+    %      #1\nobreak\hfil \nobreak\hb@xt@\@pnumwidth{\hss #2}\par
+    %      \penalty\@highpenalty
+    %    \endgroup
+    %  \fi}
+    %\makeatother
+    
+    \renewcommand{\thechapter}{\Roman{chapter} }
+    \usepackage{imakeidx}
+    \makeindex
+    \indexsetup{othercode=\footnotesize}
+    %
+    \begin{document}
+    %
+    \pagestyle{empty}
+    %
+    \begin{center}
+        \vspace*{-0.7in}
+        \includegraphics[width=0.5\textwidth]{msu}\\
+        {\scshape Московский государственный университет имени М.\,В. Ломоносова}\\
+        Факультет вычислительной математики и кибернетики\\
+        \vfill
+        {\LARGE Лекции по курсу}\\
+        \vspace{0.55cm}
+        {\Huge\bfseries Численные методы}\\
+    \end{center}
+    %
+    \vspace{1cm}
+    %
+    \begin{center}
+        \textit{Лектор}\\
+        Н.\,И. Ионкин\\
+    \end{center}
+    
+    %
+    \vfill
+    %
+    \begin{center}
+        Москва, 2015
+    \end{center}
+    %
+    \newpage
+    ~
+    %
+    \newpage
+    %
+    \phantomsection
+    \pagestyle{empty}
+    %
+    %
+    \addtocontents{toc}{\protect\thispagestyle{empty}}
+    \tableofcontents
+    %
+    \newpage
+    %
+    \phantomsection
+    \pagestyle{empty}
+    %
+    \pagestyle{fancy}
+    %
+    \input{AppendixB/summaries}
+    
+    
+    \end{document}
+    
+    
