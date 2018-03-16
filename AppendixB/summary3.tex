@@ -1,0 +1,42 @@
+% starter for a character
+\newpage
+\phantomsection
+\pagestyle{empty}
+\vspace{0.5cm}
+% \starter
+
+
+\section{Глава III. Численное решение нелинейных уравнений и систем нелинейных уравнений}
+
+\subsection{Основные идеи главы}
+
+Для решения нелинейных уравнений и систем нелинейных уравнений применяются методы последовательного приближения решения. Их идея заключается в задании некоторого начального приближения и последующим отдалением от него в поиске решений.
+
+В простейшем виде описанную идею реализует \textit{метод простой итерации}, где очередное приближение получается по формуле
+\begin{math} x^{n + 1} = x^n + r(x^n)f(x^n) \end{math}.
+Метод простой итерации не определяет функцию \begin{math} r() \end{math}. Оптимальным по скорости сходимости выбором является \begin{math} r(x) = -\frac{1}{f'(x^n)} \end{math}, что приводит к \textit{методу Ньютона}.
+% Недостатком метода Ньютона является высокая вычислительная сложность, исходящая из необходимости вычисления производной на каждой итерации.
+Выбор \begin{math} r(x) = - \frac{(x^n - x^{n - 1})f(x^n)}{f(x^n) - f(x^{n - 1})} \end{math} приводит к \textit{методу секущих}.
+
+\subsection{Рассмотренные методы}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Название метода} & \textbf{Формула прерощения} & \textbf{Условие сходимости} \\
+\hline
+Метод & \begin{math} x^{n + 1} = x^n + r(x^n)f(x^n) \end{math} & \\
+простой итерации &  & \\
+\hline
+Метод Ньютона & \begin{math} x^{n + 1} = x^n - \frac{f(x^n)}{f'(x^n)} \end{math} & \begin{math} \exists M>0: \end{math} \\
+& & \begin{math} \frac{1}{2}\left|\left(\frac{f(x)f''(x)}{(f'(x))^2}\right)'\right| \leqslant M, \end{math} \\
+& & \begin{math} ~~~x \in U_a(x^*), |x^0 -x^*| <= \frac{1}{M} \end{math} \\
+\hline
+Модифицированный & \begin{math} x^{n + 1} = x^n - \frac{f(x^n)}{f'(x^0)} \end{math} & -//-\\
+метод Ньютона & & \\ 
+\hline
+Метод секущих & \begin{math} x^{n + 1} = - \frac{(x^n - x^{n - 1})f(x^n)}{f(x^n) - f(x^{n - 1})} \end{math} & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
