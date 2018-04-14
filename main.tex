@@ -230,6 +230,8 @@
     
     \renewcommand{\thechapter}{\Roman{chapter} }
     \usepackage{imakeidx}
+    \usepackage{multirow}
+    \usepackage{tabularx}
     \makeindex
     \indexsetup{othercode=\footnotesize}
     %
@@ -259,27 +261,9 @@
     \vfill
     %
     \begin{center}
-        Москва, 2015
+        Москва, 2018
     \end{center}
-    %
-    \newpage
-    ~
-    %
-    \newpage
-    %
-    \phantomsection
-    \pagestyle{empty}
-    %
-    %
-    \addtocontents{toc}{\protect\thispagestyle{empty}}
-    \tableofcontents
-    %
-    \newpage
-    %
-    \phantomsection
-    \pagestyle{empty}
-    %
-    \pagestyle{fancy}
+
     %
     \input{AppendixB/summaries}
     
