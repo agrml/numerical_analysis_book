@@ -16,29 +16,36 @@
 \begin{math} x^{n + 1} = x^n + r(x^n)f(x^n) \end{math}. 
 Метод простой итерации не определяет функцию \begin{math} r() \end{math}. Оптимальным по скорости сходимости выбором является \begin{math} r(x) = -\frac{1}{f'(x^n)} \end{math}, что приводит к \textit{методу Ньютона}. 
 % Недостатком метода Ньютона является высокая вычислительная сложность, исходящая из необходимости вычисления производной на каждой итерации. 
-Выбор \begin{math} r(x) = - \frac{(x^n - x^{n - 1})f(x^n)}{f(x^n) - f(x^{n - 1})} \end{math} приводит к \textit{методу секущих}. 
+Выбор \begin{math} r(x) = - \frac{(x^n - x^{n - 1})f(x^n)}{f(x^n) - f(x^{n - 1})} \end{math} приводит к \textit{методу секущих}.
+
 
 \subsection{Рассмотренные методы}
 \begin{table}[ht]
-    \centering
-    \begin{adjustbox}{\textwidth}
+\centering
+\resizebox{\textwidth}{!}{
     \small
-    \begin{tabular}{|c|c|c|}
+    \begin{tabular}{|p{3.5cm}|p{7cm}|p{7cm}|}
     \hline
     \textbf{Название метода} & \textbf{Формула прерощения} & \textbf{Условие сходимости} \\
     \hline
-    Метод & \begin{math} x^{n + 1} = x^n + r(x^n)f(x^n) \end{math} & \\
-    простой итерации &  & \\
+    \begin{tabular}[c]{@{}l@{}} Метод простой\\ итерации  \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}  \begin{math} \frac{x^{n + 1} - x^n}{\tau} + f(x^n) = 0, \end{math}\\ \begin{math} x^{n+1} = S(x), \end{math}\\ \begin{math} S(x) = x - \tau f(x), \end{math} \\ \begin{math} \tau > 0, n \in Z_+, x_0 \end{math} -- начальное\\ приближение, берется из \\ локализованной окрестности, \\ \begin{math} x_0 \in U_a(x^*) \end{math} \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}} Необходимое условие:\\ \begin{math} \sup_{x \in U_a(x^*)} |1 - \tau f'(x)| < 1, \end{math}\\т.е. \begin{math} 0< \tau < \frac{2}{M}, \end{math} \\ где \begin{math} M = \sup_{x \in U_a(x^*)} |f'(x)|  \end{math} \end{tabular}
+        \\
     \hline
-    Метод Ньютона & \begin{math} x^{n + 1} = x^n - \frac{f(x^n)}{f'(x^n)} \end{math} & \begin{math} \exists M>0: \end{math} \\
-    & & \begin{math} \frac{1}{2}\left|\left(\frac{f(x)f''(x)}{(f'(x))^2}\right)'\right| \leqslant M, \end{math} \\
-    & & \begin{math} ~~~x \in U_a(x^*), |x^0 -x^*| <= \frac{1}{M} \end{math} \\
+    \begin{tabular}[c]{@{}l@{}} Метод Ньютона \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}  \begin{math} x^{n + 1} = x^n - \frac{f(x^n)}{f'(x^n)}, n = 0,1,... \end{math} \\ $x^0 \in U_a(x^*)$ \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}} $\exists M>0:  \frac{1}{2}\left|\left(\frac{f(x)f''(x)}{(f'(x))^2}\right)'\right| \leqslant M$,\\ $ \forall x \in U_a(x^*), |x^0 -x^*| \leqslant \frac{1}{M}$ \\ Тогда метод Ньютона сходится и \\ имеет место оценка \\ $|x^n - x^*| \leqslant \frac{1}{M} (M |x^0 - x^*|)^{2^n}$ \end{tabular}
+        \\
     \hline
-    Модифицированный & \begin{math} x^{n + 1} = x^n - \frac{f(x^n)}{f'(x^0)} \end{math} & -//-\\
-    метод Ньютона & & \\ 
+    \begin{tabular}[c]{@{}l@{}} Модифицированный \\ метод Ньютона  \end{tabular}&
+    \begin{tabular}[c]{@{}l@{}} \begin{math} x^{n + 1} = x^n - \frac{f(x^n)}{f'(x^0)}n = 0,1,... \end{math} \\ $x^0 \in U_a(x^*)$   \end{tabular} & 
+    \begin{tabular}[c]{@{}l@{}} Сходится быстрее метода простой \\ итерации,  но медленнее метода Ньютона  \end{tabular}\\
     \hline
-    Метод секущих & \begin{math} x^{n + 1} = - \frac{(x^n - x^{n - 1})f(x^n)}{f(x^n) - f(x^{n - 1})} \end{math} & \\
+    Метод секущих & 
+    \begin{tabular}[c]{@{}l@{}} \begin{math} x^{n + 1} = - \frac{(x^n - x^{n - 1})f(x^n)}{f(x^n) - f(x^{n - 1})}, n = 0,1,...,\end{math}\\ $x^0$ и $x^1$ заданы \end{tabular} &
+     \\
     \hline
     \end{tabular}
-    \end{adjustbox}
-    \end{table}
+}
+\end{table}
