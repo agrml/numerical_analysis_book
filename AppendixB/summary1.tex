@@ -21,3 +21,31 @@
 Одно из важных понятий первой главы пособия — понятие обратной матрицы, которое активно используется не только в контексте прямого поиска решения, но и при исследовании на сходимость численных методов нахождения решений различных задач и оценке скорости их сходимости.
 
 \subsection{Рассмотренные методы}
+\begin{table}[ht]
+\centering
+\resizebox{\textwidth}{!}{
+    \small
+    \begin{tabular}{|p{3cm}|p{7cm}|p{7cm}|p{7cm}|}
+    \hline
+    \textbf{Название метода} & \textbf{Канонический вид} & \textbf{Условие сходимости в среднеквадратичной норме} & \textbf{Скорость сходимости} \\
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Метод простой\\ итерации  \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} \frac{x^{n + 1} - x^n}{\tau} + Ax^n = f, \tau > 0 \end{math} \\
+    	\begin{math} \tau > 0, n \in Z_+ \end{math} \\
+        \begin{math} x^0 \end{math} -- начальное приближение
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} A^T=A>0, \gamma=\max\limits_{1 \leq k \leq m}\lambda_k^A, 0<\tau<\frac{2}{\gamma} \end{math} \\
+        \begin{math} x_0 \end{math} — любое
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} A=A^{*}>0,B=E \end{math} \\
+        \begin{math} \gamma_1=\min\limits_{1 \leq k \leq m}\lambda_k^A, \gamma_2=\max\limits_{1 \leq k \leq m}\lambda_k^A \end{math} \\
+        \begin{math} \xi=\frac{\gamma_1}{\gamma_2}, \rho=\frac{1-\xi}{1+\xi} \Rightarrow ||\nu^{n+1}|| \leq \rho||\nu^n|| \end{math}
+    \end{tabular}
+    \\
+    \hline
+    \end{tabular}
+}
+\end{table}
