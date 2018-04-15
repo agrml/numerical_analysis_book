@@ -25,14 +25,16 @@
 \centering
 \resizebox{\textwidth}{!}{
     \small
-    \begin{tabular}{|p{3cm}|p{7cm}|p{7cm}|p{7cm}|}
+    \begin{tabular}{|p{3cm}|p{6cm}|p{7cm}|p{7cm}|}
+    
     \hline
-    \textbf{Название метода} & \textbf{Канонический вид} & \textbf{Условие сходимости в среднеквадратичной норме} & \textbf{Скорость сходимости} \\
+    \textbf{Название метода} & \textbf{Канонический вид} & \textbf{Условие сходимости в среднеквадратичной норме} & \textbf{Скорость сходимости}
+    \\
+    
     \hline
-    \begin{tabular}[c]{@{}l@{}} Метод простой\\ итерации  \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}} Метод простой\\ итерации \end{tabular}  &
     \begin{tabular}[c]{@{}l@{}}
-    	\begin{math} \frac{x^{n + 1} - x^n}{\tau} + Ax^n = f, \tau > 0 \end{math} \\
-    	\begin{math} \tau > 0, n \in Z_+ \end{math} \\
+    	\begin{math} \frac{x^{n + 1} - x^n}{\tau} + Ax^n = f, \tau > 0, n \in Z_+ \end{math} \\
         \begin{math} x^0 \end{math} -- начальное приближение
     \end{tabular} &
     \begin{tabular}[c]{@{}l@{}}
@@ -45,6 +47,27 @@
         \begin{math} \xi=\frac{\gamma_1}{\gamma_2}, \rho=\frac{1-\xi}{1+\xi} \Rightarrow ||\nu^{n+1}|| \leq \rho||\nu^n|| \end{math}
     \end{tabular}
     \\
+    
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Метод Якоби \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} D(x^{n + 1} - x^n) + Ax^n = f, n \in Z_+ \end{math} \\
+        \begin{math} x^0 \end{math} -- начальное приближение \\
+        \begin{math} D = diag(a_{11}, a_{22}, …, a_{mm}) \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	Любое из: \\
+    	1) \begin{math} A=A^{*}>0, 2D > A \end{math} \\
+    	2) \begin{math} A=A^{*}>0, a_{ij} > \sum\limits_{j=1,i \neq j}^m |a_{ij}| \end{math} \\
+        \begin{math} x_0 \end{math} — любое
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} A=A^{*}>0, B=B^{*}>0 \end{math} \\
+        \begin{math} \exists \rho: 0 < \rho < 1, \frac{1-\rho}{\tau}B \leq A \leq \frac{1+\rho}{\tau}B \Rightarrow \end{math} \\
+        \begin{math} \Rightarrow ||\nu^{n+1}||_B \leq \rho||\nu^n||_B \end{math}
+    \end{tabular}
+    \\
+    
     \hline
     \end{tabular}
 }
