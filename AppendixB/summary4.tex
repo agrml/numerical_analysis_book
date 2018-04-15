@@ -20,7 +20,7 @@
 \centering
 \resizebox{\textwidth}{!}{
     \small
-    \begin{tabular}{|p{3cm}|p{7cm}|p{6.5cm}|p{6.5cm}|}
+    \begin{tabular}{|p{3cm}|p{6cm}|p{7cm}|p{6cm}|}
     
     \hline
     \textbf{Название метода} & \textbf{Описание метода} & \textbf{Погрешность аппроксимации} & \textbf{Сходимость численного решения к точному}
@@ -29,7 +29,7 @@
     \hline
     \begin{tabular}[c]{@{}l@{}} Явная \\ разностная \\ схема \end{tabular}  &
     \begin{tabular}[c]{@{}l@{}}
-    	\begin{math} \frac{y_i^{n+1} - y_i^n}{\tau}=\frac{y_{i-1}^{n+1} - 2y_i^n + y_{i+1}^{n+1}}{h^2} + f(x_i,t_n),\end{math} \\
+    	\begin{math} \frac{y_i^{n+1} - y_i^n}{\tau}=\frac{y_{i-1}^n - 2y_i^n + y_{i+1}^n}{h^2} + f(x_i,t_n),\end{math} \\
         \begin{math} (x_i,t_n)\in\omega_{\tau h}, \end{math} \\
         \begin{math} \begin{cases}
         	y_0^{n+1}=\mu_1(t_{n+1}), t_{n+1} \in \overline{\omega}_\tau \\ 
@@ -38,7 +38,7 @@
         \begin{math} y_i^0=u_0(x_i), x_i \in \overline{\omega}_h \end{math}
     \end{tabular} &
     \begin{tabular}[c]{@{}l@{}}
-    	\begin{math} \psi_i^n=\frac{u_{i-1}^{n+1} - 2u_i^n + u_{i+1}^{n+1}}{h^2}-\frac{u_i^{n+1} - u_i^n}{\tau}+f_i^n, \end{math} \\
+    	\begin{math} \psi_i^n=\frac{u_{i-1}^n - 2u_i^n + u_{i+1}^n}{h^2}-\frac{u_i^{n+1} - u_i^n}{\tau}+f_i^n, \end{math} \\
         \begin{math} \psi_i^n=O(\tau+h^2) \end{math}
     \end{tabular} &
     \begin{tabular}[c]{@{}l@{}}
@@ -46,6 +46,30 @@
     	Необходимо и достаточно для \\
         сходимости и устойчивости: \\
     	\begin{math} \frac{\tau}{h^2}=\gamma\leq\frac{1}{2} \end{math}
+    \end{tabular}
+    \\
+    
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Чисто неявная \\ схема \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} \frac{y_i^{n+1} - y_i^n}{\epsilon}=\frac{y_{i-1}^{n+1} - 2y_i^{n+1} + y_{i+1}^{n+1}}{h^2} + f_i^{n+1}, \end{math} \\
+        \begin{math} \begin{cases}
+        	y_0^{n+1}=\mu_1(t_{n+1}), t_{n+1} \in \overline{\omega}_\tau \\ 
+            y_N^{n+1}=\mu_1(t_{n+1}), t_{n+1} \in \overline{\omega}_\tau
+        \end{cases}, \end{math} \\
+        \begin{math} y_i^0=u_0(x_i), x_i \in \overline{\omega}_h \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} \psi_i^n=\frac{u_{i-1}^{n+1} - 2u_i^{n+1} + u_{i+1}^{n+1}}{h^2}-\frac{u_i^{n+1} - u_i^n}{\tau}+f_i^{n+1}, \end{math} \\
+        \begin{math} \psi_i^n=O(\tau+h^2) \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	Чисто неявная разностная схема \\
+        абсолютно сходится \\
+        (имеем абсолютную сходимость \\
+        первого порядка по \begin{math} \tau \end{math} \\
+        и второго порядка по \begin{math} h \end{math}). \\
+    	Сходится в норме C.
     \end{tabular}
     \\
     
