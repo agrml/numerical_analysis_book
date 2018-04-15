@@ -69,6 +69,32 @@
     \\
     
     \hline
+    \begin{tabular}[c]{@{}l@{}} Метод Зейделя \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} (D+R_1)(x^{n + 1} - x^n) + Ax^n = f \end{math} \\
+        \begin{math} n \in Z_+, x^0 \end{math} — нач. приближение \\
+        \begin{math} D = diag(a_{11}, a_{22}, …, a_{mm}) \end{math} \\
+        \begin{math} R_1 = 
+        	\begin{bmatrix}
+                0      & 0      & 0      & \dots  & 0      \\
+                a_{21} & 0      & 0      & \dots  & 0      \\
+                \vdots & \vdots & \vdots & \ddots & \vdots \\
+                a_{m1} & x_{m2} & x_{m3} & \dots  & 0
+            \end{bmatrix}
+        \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} A = A^{*}>0 \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} A=A^{*}>0, B=B^{*}>0 \end{math} \\
+        \begin{math} \exists \gamma_1, \gamma_2: 0 < \gamma_1 < \gamma_2, \gamma_1B \leq A \leq \gamma_2B \end{math} \\
+        \begin{math} \tau = \frac{2}{\gamma_1+\gamma_2}=\tau_0 \end{math} \\
+        \begin{math} \xi=\frac{\gamma_1}{\gamma_2}, \rho=\frac{1-\xi}{1+\xi} \Rightarrow ||\nu^{n+1}||_B \leq \rho||\nu^n||_B \end{math}
+    \end{tabular}
+    \\
+    
+    \hline
     \end{tabular}
 }
 \end{table}
