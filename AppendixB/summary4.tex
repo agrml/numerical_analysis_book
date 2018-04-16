@@ -109,6 +109,46 @@
     \\
     
     \hline
+    \begin{tabular}[c]{@{}l@{}}
+    	Разностная \\ схема с весами
+    \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math}
+        	\dfrac{y_i^{n+1} - y_i^n}{\tau} = 
+        \end{math} \\ \begin{math}
+        	~~~~= \sigma y_{\overline{x}x,i}^{n+1} + \left(1 - \sigma\right) y_{\overline{x}x,i}^n + \varphi_i^n,
+    	\end{math} \\ \begin{math}
+        	\begin{cases}
+                y_0^{n+1} = \mu_1(t_{n+1}) \\
+                y_N^{n+1} = \mu_2(t_{n+1})
+            \end{cases},
+            y_i^0 = u_0(x_i)
+        \end{math} \\ \begin{math}
+        	(x_i,t_n)\in\omega_{h \tau}, t_{n+1}\in \overline{\omega}_{\tau}, x_i\in \overline{\omega}_h
+        \end{math} \\ \begin{math}
+        	\sigma\in\mathbb{R} \end{math} — весовой множитель
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math}
+        	\psi_i^n = \psi_i^n = \sigma u_{\overline{x}x,i}^{n+1} + (1-\sigma) u_{\overline{x}x,i}^n -
+    	\end{math} \\ \begin{math}
+        	~~~~- \dfrac{u_i^{n+1} - u_i^n}{\tau} + \varphi_i^n,
+    	\end{math} \\ \begin{math}
+        	\varphi_i^n = f_i(t_{n+\frac12}) + \frac{h^2}{12} f''_i(t_{n+\frac12}),
+        \end{math} \\ \begin{math}
+        	\sigma = \sigma_* = \dfrac12 - \dfrac{h^2}{12\tau} \Rightarrow \psi_i^n=O(\tau^2+h^2)
+        \end{math} \\ \begin{math}
+        	\sigma = 0.5, \varphi_i^n = f_i(t_{n+\frac12}) \Rightarrow \psi^n_i = \bigO{\tau^2 + h^2}
+        \end{math}  \\ \begin{math}
+        	\sigma \neq 0.5, \sigma \neq \sigma_* \Rightarrow \psi^n_i = \bigO{\tau + h^2}
+        \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	Не изучалось.
+    \end{tabular}
+    \\
+    
+    \hline
     \end{tabular}
 }
 \end{table}
