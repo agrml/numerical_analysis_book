@@ -20,7 +20,7 @@
 \centering
 \resizebox{\textwidth}{!}{
     \small
-    \begin{tabular}{|p{3cm}|p{6cm}|p{7cm}|p{6cm}|}
+    \begin{tabular}{|p{3cm}|p{5.9cm}|p{7.1cm}|p{6cm}|}
     
     \hline
     \textbf{Название метода} & \textbf{Описание метода} & \textbf{Погрешность аппроксимации} & \textbf{Сходимость численного решения к точному}
@@ -70,6 +70,41 @@
         первого порядка по \begin{math} \tau \end{math} \\
         и второго порядка по \begin{math} h \end{math}). \\
     	Сходится в норме C.
+    \end{tabular}
+    \\
+    
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Симметричная \\ разностная \\ схема (схема \\ Кранка- \\ Никольсена) \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math}
+        	y_{\overline{x}x, i}^n = \frac{y_{i-1}^n - 2y_i^n + y_{i+1}^n}{h^2}
+        \end{math} \\ \begin{math}
+        	\frac{y_i^{n+1} - y_i^n}{\tau} = \frac{y_{\overline{x}x, i}^{n+1} +
+    y_{\overline{x}x, i}^n}{2} + f(x_i, t_{n+\frac12})
+    	\end{math} \\ \begin{math}
+        	\begin{cases}
+                y_0^{n+1} = \mu_1(t_{n+1}) \\
+                y_N^{n+1} = \mu_2(t_{n+1}),
+            \end{cases}
+        \end{math} \\ \begin{math}
+        	t_{n+1}\in \overline{\omega}_{\tau}, y_i^0 = u_0(x_i), x_i\in \overline{\omega}_h
+        \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math}
+        	\psi_i^n = -\frac{u_i^{n+1} - u_i^n}{\tau} + \frac{u^{n+1}_{\overline{x}x,i}
+    + u^{n}_{\overline{x}x,i}}{2} + f(x_i, t_{n+\frac{1}{2}}),
+    	\end{math} \\ \begin{math}
+        	\psi_i^n=O(\tau^2+h^2)
+        \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	Сходится в норме \\
+        \begin{math}
+        	\norm{z}_{L^2C} = \left(\sum_{i=1}^{N-1} z_i^2h\right)^\frac{1}{2}
+        \end{math} \\
+        Со вторым порядком как по \begin{math} \tau \end{math}, \\
+        так и по \begin{math} h \end{math}.
     \end{tabular}
     \\
     
