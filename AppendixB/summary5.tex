@@ -46,3 +46,55 @@
 решают интегро-интерполяционным методом (методом баланса) построения разностных схем.
 
 \subsection{Рассмотренные методы}
+\begin{table}[ht]
+\centering
+\resizebox{\textwidth}{!}{
+    \small
+    \begin{tabular}{|p{3.5cm}|p{6.7cm}|p{7.1cm}|p{6cm}|}
+    
+    \hline
+    \textbf{Название метода} & \textbf{Описание метода} & \textbf{Погрешность формулы}\\
+    
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Метод Рунге-Кутта \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	$\dfrac{y_{n+1} - y_n}{\tau} = \sigma_1 K_1 + \sigma_2 K_2 + \ldots + \sigma_m K_m$ \\
+        $K_1 = f(t_n, y_n)$,\\
+        $K_2 = f(t_n + a_2\tau, y_n + b_{21} \tau K_1)$, \\
+        $K_3 = f(t_n + a_3\tau, y_n + b_{31}\tau K_1 + b_{32}\tau K_2)$, \\
+        \dots \\
+        $K_m = f(t_n+a_m\tau, y_n + b_{m1} \tau K_1 + $\\
+        $+ b_{m2} \tau K_2 + \ldots + b_{m m -1} \tau K_{m-1})$
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	Однопараметрическое семейство\\ разностных схем \\
+        $\dfrac{y_{n+1} - y_n}{\tau} = (1 - \sigma)f(t_n, y_n) +$\\
+        $\sigma f(t_n + a\tau, y_n + a\tau f(t_n, y_n))$\\
+        $\psi_n = O(\tau^2)$, если $a\tau=0.5$\\
+        $z_n \leq M\tau^2, M > 0$ и не зависит от $\tau$
+    \end{tabular}
+    \\
+    
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Многошаговые \\разностные методы\end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+         $\sum_{k=0}^m \frac{a_k}{\tau} y_{n-k} = \sum_{k=0}^m b_k f_{n-k},$ \\
+         $a_0 \not= 0, b_m \not= 0, n=m, m+1, \ldots$. \\
+         $y_{n-1}, y_{n-2}, \ldots, y_{n-m}$ - заданы \\
+         При $b=0$ метод называется явным, \\
+         в противном случае неявным. \\
+         Условие нормировки: $\sum_{k=0}^m b_k$
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	 Для достижения порядка аппроксимации\\
+         $p$ должны выполняться \\
+         следующие условия:\\
+         $a_0=-\sum_{k=1}^m a_k$\\
+         $b_0=1-\sum_{k=1}^m b_k$\\
+         $\sum_{k=0}^m k^{l-1}(a_kk+lb_k)=0,l=1,2,\ldots,p$
+    \end{tabular}
+    \\
+    \hline
+    \end{tabular}
+}
+\end{table}

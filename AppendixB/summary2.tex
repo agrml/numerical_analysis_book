@@ -5,7 +5,7 @@
 \vspace{0.5cm}
 % \starter
 
-\section*{Глава II. Численное решение нелинейных уравнениий систем нелинейных уравнений}
+\section*{Глава II. Интерполирование и приближение функций}
 
 \subsection{Основные идеи главы} 
 
@@ -19,3 +19,80 @@
 Для линейного пространства функций $H$, заданных таблично (в узлах),  скалярным произведением $(f,g) = \sum\limits_{i=0}^N f_i g_i$ и порождённой им нормой приближение строится аналогичным образом.
 
 \subsection{Рассмотренные методы}
+\begin{table}[ht]
+\centering
+\resizebox{\textwidth}{!}{
+    \small
+    \begin{tabular}{|p{3.5cm}|p{7cm}|p{7.1cm}|p{6cm}|}
+    
+    \hline
+    \textbf{Название метода} & \textbf{Описание метода} & \textbf{Погрешность формулы}\\
+    
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Интерполяционный\\ полином Лагранжа \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math}L_n(x)=\sum_{k=0}^{n}{c_k(x)f(x_k)},\end{math}
+        \\
+        \begin{math}c_k(x)=\frac{\omega(x)}{(x-x_k)\omega'(x_k)},\end{math}
+        \\
+        \begin{math}\omega'(x_k)=\left(\prod_{\substack{i=0\\i\neq k}}^{n}{(x_k-x_i)}\right)\end{math} \\
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math} \left|\psi_{L_n}(x)\right| \leqslant \frac{\sup_{x\in[a,b]}{\left|f^{(n+1)}
+    (x)\right|}}
+    {(n+1)!}\left|\omega(x)\right|,
+   \end{math} \\
+    \end{tabular}
+    \\
+    
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Интерполяционный\\ полином Ньютона\end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	$N_n(x)=f(x_0)+(x-x_0)f(x_0,x_1)+$\\
+        $+(x-x_0)(x-x_1)f(x_0,x_1,x_2)+\ldots+$\\
+        $+(x-x_0)\ldots(x-x_{n-1})f(x_0,x_1,\ldots,x_n)$
+        \\
+        $f(x_0, x_{1}, \ldots, x_{k})=\sum_{i=0}^{k}{\frac{f(x_i)},{\omega_{0,k}'(x_i)}}$
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+    	см. полином Лагранжа, \\
+        т.к. суть есть один многочлен
+    \end{tabular}
+    \\
+    
+    \hline
+    \begin{tabular}[c]{@{}l@{}} Интерполяционный \\ полином Эрмита \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	\begin{math}
+        H_n(x)=\sum_{k=0}^m{\sum_{i=0}^{a_{k}-1}{c_{k,i}(x)f^{(i)}(x_k)}}
+        \end{math}
+        \\
+        $c_{k,i}(x)$ - полиномы степени $n$.
+        \\
+        Коэффициенты ищутся из условия \\$H_n^{(i)}(x_k)=f^{(i)}(x_k)$
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+   	$\psi_{H_n}(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{a_0}\ldots(x-x_m)^{a_m}$,\\
+    $a_0+a_1+\ldots+a_m=n+1$
+    \end{tabular}
+    \\
+    
+     \hline
+    \begin{tabular}[c]{@{}l@{}} Наилучшее\\среднеквадратичное \\приближение \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+    	 $\overline{\varphi}(x) = \sum_{i=0}^n \overline{c_i} \varphi_i(x)$,\\
+         коэффициенты ищутся из условия \\
+         $\sum_{l=0}^n c_l(\varphi_k, \varphi_l) = (f, \varphi_k),\quad k = \overline{0,n},$\\
+         $c_l, l = \overline{0,n}$\\
+         \\
+         (Аналогично для таблично \\заданных функций)
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+   	
+    \end{tabular}
+    \\
+    
+    \hline
+    \end{tabular}
+}
+\end{table}
