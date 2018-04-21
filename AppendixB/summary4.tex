@@ -55,7 +55,7 @@
     \hline
     \begin{tabular}[c]{@{}l@{}} Чисто неявная \\ схема \end{tabular}  &
     \begin{tabular}[c]{@{}l@{}}
-    	\begin{math} \frac{y_i^{n+1} - y_i^n}{\epsilon}=\frac{y_{i-1}^{n+1} - 2y_i^{n+1} + y_{i+1}^{n+1}}{h^2} + f_i^{n+1}, \end{math} \\
+    	\begin{math} \frac{y_i^{n+1} - y_i^n}{\varepsilon}=\frac{y_{i-1}^{n+1} - 2y_i^{n+1} + y_{i+1}^{n+1}}{h^2} + f_i^{n+1}, \end{math} \\
         \begin{math} \begin{cases}
         	y_0^{n+1}=\mu_1(t_{n+1}), t_{n+1} \in \overline{\omega}_\tau \\ 
             y_N^{n+1}=\mu_1(t_{n+1}), t_{n+1} \in \overline{\omega}_\tau
@@ -104,7 +104,7 @@
     \begin{tabular}[c]{@{}l@{}}
     	Сходится в норме \\
         \begin{math}
-        	\norm{z}_{L^2C} = \left(\sum_{i=1}^{N-1} z_i^2h\right)^\frac{1}{2}
+        	\norm{z}_{L_2(w_n)} = \left(\sum_{i=1}^{N-1} z_i^2h\right)^\frac{1}{2}
         \end{math} \\
         Со вторым порядком как по \begin{math} \tau \end{math}, \\
         так и по \begin{math} h \end{math}.

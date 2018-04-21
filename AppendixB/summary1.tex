@@ -34,13 +34,13 @@
     \\
     
     \hline
-    \begin{tabular}[c]{@{}l@{}} Метод простой\\ итерации \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}} Метод релаксации \end{tabular}  &
     \begin{tabular}[c]{@{}l@{}}
     	\begin{math} \frac{x^{n + 1} - x^n}{\tau} + Ax^n = f, \tau > 0, n \in Z_+ \end{math} \\
         \begin{math} x^0 \end{math} -- начальное приближение
     \end{tabular} &
     \begin{tabular}[c]{@{}l@{}}
-    	\begin{math} A^T=A>0, \gamma=\max\limits_{1 \leq k \leq m}\lambda_k^A, 0<\tau<\frac{2}{\gamma} \end{math} \\
+    	\begin{math} A^*=A>0, \gamma=\max\limits_{1 \leq k \leq m}\lambda_k^A, 0<\tau<\frac{2}{\gamma} \end{math} \\
         \begin{math} x^0 \end{math} — любое
     \end{tabular} &
     \begin{tabular}[c]{@{}l@{}}
@@ -99,8 +99,8 @@
     \hline
     \begin{tabular}[c]{@{}l@{}} Попеременно- \\ треугольный \\ итерационный \\ метод \end{tabular}  &
     \begin{tabular}[c]{@{}l@{}}
-    	\begin{math} (E+\omega R_1)(E+\omega R_2)\frac{x^{n + 1} - x^n}{\tau_{n+1}} + Ax^n = f \end{math} \\
-        \begin{math} n \in Z_+, \omega > 0, \tau_{n+1} > 0 \end{math} \\
+    	\begin{math} (E+\omega R_1)(E+\omega R_2)\frac{x^{n + 1} - x^n}{\tau} + Ax^n = f \end{math} \\
+        \begin{math} n \in Z_+, \omega > 0, \tau > 0 \end{math} \\
         \begin{math} x^0 \end{math} — начальное приближение \\
         \begin{math} R_1 = 
         	\begin{bmatrix}
