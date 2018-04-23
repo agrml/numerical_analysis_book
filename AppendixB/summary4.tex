@@ -152,6 +152,35 @@
     \\
     
     \hline
+    \begin{tabular}[c]{@{}l@{}}
+        Разностная \\ схема для \\
+        уравнения Пуассона \\
+        (задача Дирихле)
+    \end{tabular}  &
+    \begin{tabular}[c]{@{}l@{}}
+        \begin{math}
+            y_{\overline{x}_1x_1,ij} + y_{\overline{x}_2x_2,ij} = f_{i,j}
+        \end{math} \\ \begin{math}
+            i = \overline{1,N_1-1}, j = \overline{1,N_2-1}
+        \end{math} \\ \begin{math}
+            \left.y_{ij}\right\vert_{\Gamma_h} = \mu_{ij}
+        \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+        \begin{math}
+            \psi_i^n = f_{ij} - u_{\overline{x}_1x_1,ij} - u_{\overline{x}_2x_2,ij}
+        \end{math} \\ \begin{math}
+            \psi_i^n = O(h_1^2+h_2^2)
+        \end{math}
+    \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}}
+        Сходится в норме \begin{math}C\end{math} \\
+        со вторым порядком по \\
+        \begin{math}h_1\end{math} и \begin{math}h_2\end{math}.
+    \end{tabular}
+    \\
+    
+    \hline
     \end{tabular}
 }
 \end{adjustbox}
