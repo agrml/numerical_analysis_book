@@ -37,7 +37,7 @@
     \hline
     \begin{tabular}[c]{@{}l@{}} Метод Ньютона \end{tabular} &
     \begin{tabular}[c]{@{}l@{}}  \begin{math} x^{n + 1} = x^n - \frac{f(x^n)}{f'(x^n)}, n = 0,1,... \end{math} \\ $x^0 \in U_a(x^*)$ \end{tabular} &
-    \begin{tabular}[c]{@{}l@{}} $\exists M>0:  \frac{1}{2}\left|\left(\frac{f(x)f''(x)}{(f'(x))^2}\right)'\right| \leqslant M$,\\ $ \forall x \in U_a(x^*), |x^0 -x^*| \leqslant \frac{1}{M}$ \\ Тогда метод Ньютона сходится и \\ имеет место оценка \\ $|x^n - x^*| \leqslant \frac{1}{M} (M |x^0 - x^*|)^{2^n}$ \end{tabular}
+    \begin{tabular}[c]{@{}l@{}} $\exists M>0:  \frac{1}{2}\left|\left(\frac{f(x)f''(x)}{(f'(x))^2}\right)'\right| \leqslant M$,\\ $ \forall x \in U_a(x^*), |x^0 -x^*| \leqslant \frac{1}{M}$ \\ Тогда метод Ньютона сходится и \\ имеет место оценка \\ $|x^n - x^*| < \frac{1}{M} (M |x^0 - x^*|)^{2^n}$ \end{tabular}
         \\
     \hline
     \begin{tabular}[c]{@{}l@{}} Модифицированный \\ метод Ньютона  \end{tabular}&
@@ -49,7 +49,7 @@
     \begin{tabular}[c]{@{}l@{}} Необходимое условие:\\ \begin{math} \sup_{x \in U_a(x^*)} |1 - \tau f'(x)| < 1, \end{math}\\т.е. \begin{math} 0< \tau < \frac{2}{M}, \end{math} \\ где \begin{math} M = \sup_{x \in U_a(x^*)} |f'(x)|  \end{math} \end{tabular} \\
     \hline
     Метод секущих & 
-    \begin{tabular}[c]{@{}l@{}} \begin{math} x^{n + 1} = - \frac{(x^n - x^{n - 1})f(x^n)}{f(x^n) - f(x^{n - 1})}, n = 0,1,...,\end{math}\\ $x^0$ и $x^1$ заданы \end{tabular} &
+    \begin{tabular}[c]{@{}l@{}} \begin{math} x^{n + 1} = x^n - \frac{(x^n - x^{n - 1})f(x^n)}{f(x^n) - f(x^{n - 1})}, n = 0,1,...,\end{math}\\ $x^0$ и $x^1$ заданы \end{tabular} &
     Не изучалось\\  
     \hline
     \end{tabular}
